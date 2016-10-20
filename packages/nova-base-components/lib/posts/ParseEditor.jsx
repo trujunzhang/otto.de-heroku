@@ -16,7 +16,7 @@ class ParseEditor extends Component {
         this.state = this.initialState = {
             // Edit
             url: this.props.category['url'] ? this.props.category['url'] : "",
-            pageNumber: this.props.category['pageNumber'] ? this.props.category['pageNumber'] : 0,
+            //pageNumber: this.props.category['pageNumber'] ? this.props.category['pageNumber'] : 0,
             totalNumber: this.props.category['totalNumber'] ? this.props.category['totalNumber'] : 0,
         };
     }
@@ -42,11 +42,24 @@ class ParseEditor extends Component {
         } else {
             const result = {
                 "url": this.state.url,
-                "pageNumber": this.state.pageNumber,
+                //"pageNumber": this.state.pageNumber,
                 "totalNumber": this.state.totalNumber,
             };
             this.props.callBack(null, result);
         }
+    }
+
+    renderPageNumber(){
+        return(
+          <label className="field_1LaJb">
+              <span className="label_2ZD44 text_3Wjo0 subtle_1BWOT base_3CbW2">Total page Number Per Schedular:</span>
+              <div className="group_1nlHj text_3Wjo0 default_tBeAo base_3CbW2" id="submit-new-topic-title-panel">
+                  <input autoFocus type="text" className="collections-popover--form--field input collections-input"
+                         value={this.state.pageNumber} onChange={this.onPageNumberChange.bind(this)} placeholder="Collection name (public)"
+                         ref="newCollectionInput"/>
+              </div>
+          </label>
+        )
     }
 
     render() {
@@ -60,14 +73,7 @@ class ParseEditor extends Component {
                              ref="newCollectionInput"/>
                   </div>
               </label>
-              <label className="field_1LaJb">
-                  <span className="label_2ZD44 text_3Wjo0 subtle_1BWOT base_3CbW2">Total page Number Per Schedular:</span>
-                  <div className="group_1nlHj text_3Wjo0 default_tBeAo base_3CbW2" id="submit-new-topic-title-panel">
-                      <input autoFocus type="text" className="collections-popover--form--field input collections-input"
-                             value={this.state.pageNumber} onChange={this.onPageNumberChange.bind(this)} placeholder="Collection name (public)"
-                             ref="newCollectionInput"/>
-                  </div>
-              </label>
+              {/*{this.rendPageNumber()}*/}
               <label className="field_1LaJb">
                   <span className="label_2ZD44 text_3Wjo0 subtle_1BWOT base_3CbW2">Total products Per Schedular:</span>
                   <div className="group_1nlHj text_3Wjo0 default_tBeAo base_3CbW2" id="submit-new-topic-title-panel">

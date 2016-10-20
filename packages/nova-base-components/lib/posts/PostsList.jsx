@@ -56,7 +56,7 @@ class PostsList extends Component {
         var category = new Categories();
 
         category.set("url", result['url']);
-        category.set("pageNumber", result['pageNumber']);
+        //category.set("pageNumber", result['pageNumber']);
         category.set("totalNumber", result['totalNumber']);
 
         category.save(null, {
@@ -100,7 +100,7 @@ class PostsList extends Component {
                       <span>Url</span>
                   </a>
               </th>
-              <th scope="col" id="tags" className="manage-column column-tags">Total page Number Per Schedular</th>
+              {/*<th scope="col" id="tags" className="manage-column column-tags">Total page Number Per Schedular</th>*/}
               <th scope="col" id="comments" className="manage-column column-comments num sortable desc">Total products Per Schedular</th>
               <th scope="col" id="date" className="manage-column column-date sorted desc">
                   <a href="http://www.politicl.com/wp-admin/edit.php?mode=list&amp;orderby=date&amp;order=asc">
@@ -125,7 +125,7 @@ class PostsList extends Component {
                       <span>Url</span>
                   </a>
               </th>
-              <th scope="col" className="manage-column column-tags">Total page Number Per Schedular</th>
+              {/*<th scope="col" className="manage-column column-tags">Total page Number Per Schedular</th>*/}
               <th scope="col" className="manage-column column-comments num sortable desc">Total products Per Schedular</th>
               <th scope="col" className="manage-column column-date sorted desc">
                   <a >

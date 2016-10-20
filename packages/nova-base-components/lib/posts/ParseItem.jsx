@@ -26,9 +26,6 @@ class ParseItem extends Component {
               <td className="title column-title has-row-actions column-primary page-title">
                   <h1>{item.url}</h1>
               </td>
-              <td className="tags column-tags">
-                  <h1>{item.pageNumber}</h1>
-              </td>
               <td className="comments column-comments">
                   <h1>{item.totalNumber}</h1>
               </td>
