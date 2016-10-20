@@ -7,7 +7,7 @@ class Layout extends Component {
     render() {
 
         return (
-          <div className="wrapper" id="wrapper">
+          <div id="wrapper">
 
               <Telescope.components.HeadTags />
 
