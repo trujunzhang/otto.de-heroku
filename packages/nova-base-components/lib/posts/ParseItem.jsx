@@ -26,27 +26,11 @@ class ParseItem extends Component {
               <td className="title column-title has-row-actions column-primary page-title">
                   <h1>wh</h1>
               </td>
-              <td className="author column-author">
-                  <h1>wh</h1>
-              </td>
-              <td className="curator column-author">{/*curator is author*/}
-                  <h1>wh</h1>
-              </td>
-              <td className="categories column-categories">
-                  <h1>wh</h1>
-              </td>
               <td className="tags column-tags">
                   <h1>wh</h1>
               </td>
               <td className="comments column-comments">
-                  <div className="post-com-count-wrapper">
-                      <span >—</span>
-                      <span className="screen-reader-text">No comments</span>
-                      <span className="post-com-count post-com-count-pending post-com-count-no-pending">
-                          <span className="comment-count comment-count-no-pending">0</span>
-                          <span className="screen-reader-text">No comments</span>
-                      </span>
-                  </div>
+                  <h1>wh</h1>
               </td>
               <td className="date column-date">Last Modified<br/>
                   <abbr title={updatedAt}>{updatedAt}</abbr>

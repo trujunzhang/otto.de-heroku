@@ -40,15 +40,10 @@ class PostsList extends Component {
         }
     }
 
-    onChange(e) {
-        const input = e.target.value;
-        this.setState({value: input});
-    }
-
     componentWillMount() {
-        this.refresh();
+        //this.refresh();
 
-        this._createItem("");
+        //this._createItem("");
     }
 
     _createItem() {
@@ -101,14 +96,11 @@ class PostsList extends Component {
                   <input id="cb-select-all-1" type="checkbox"/></td>
               <th scope="col" id="title" className="manage-column column-title column-primary sortable desc">
                   <a href="http://www.politicl.com/wp-admin/edit.php?mode=list&amp;orderby=title&amp;order=asc">
-                      <span>Title</span>
+                      <span>Url</span>
                   </a>
               </th>
-              <th scope="col" id="author" className="manage-column column-author">Source Name</th>
-              <th scope="col" id="author" className="manage-column column-curator">Curator</th>
-              <th scope="col" id="categories" className="manage-column column-categories">Categories</th>
-              <th scope="col" id="tags" className="manage-column column-tags">Tags</th>
-              <th scope="col" id="comments" className="manage-column column-comments num sortable desc">Comments</th>
+              <th scope="col" id="tags" className="manage-column column-tags">Total page Number Per Schedular</th>
+              <th scope="col" id="comments" className="manage-column column-comments num sortable desc">Total products Per Schedular</th>
               <th scope="col" id="date" className="manage-column column-date sorted desc">
                   <a href="http://www.politicl.com/wp-admin/edit.php?mode=list&amp;orderby=date&amp;order=asc">
                       <span>Date</span>
@@ -129,14 +121,11 @@ class PostsList extends Component {
               </td>
               <th scope="col" className="manage-column column-title column-primary sortable desc">
                   <a >
-                      <span>Title</span>
+                      <span>Url</span>
                   </a>
               </th>
-              <th scope="col" className="manage-column column-author">Source Name</th>
-              <th scope="col" id="author" className="manage-column column-curator">Curator</th>
-              <th scope="col" className="manage-column column-categories">Categories</th>
-              <th scope="col" className="manage-column column-tags">Tags</th>
-              <th scope="col" className="manage-column column-comments num sortable desc">Comments</th>
+              <th scope="col" className="manage-column column-tags">Total page Number Per Schedular</th>
+              <th scope="col" className="manage-column column-comments num sortable desc">Total products Per Schedular</th>
               <th scope="col" className="manage-column column-date sorted desc">
                   <a >
                       <span>Date</span>
@@ -151,9 +140,9 @@ class PostsList extends Component {
     renderAddNewForm() {
         return (
           <div id="newCollectionForm" className="collections-popover--form">
-              <input autoFocus type="text" className="collections-popover--form--field input collections-input"
-                     value={this.state.value} onChange={this.onChange} placeholder="Collection name (public)"
-                     ref="newCollectionInput"/>
+              url:<input autoFocus type="text" className="collections-popover--form--field input collections-input"
+                         value={this.state.value} onChange={this.onChange} placeholder="Collection name (public)"
+                         ref="newCollectionInput"/>
               <button onClick={this._createItem.bind(this)}
                       className="button_2I1re mediumSize_10tzU secondaryBoldText_1PBCf secondaryText_PM80d simpleVariant_1Nl54 collections-popover--form--submit"
                       type="submit">
@@ -178,7 +167,7 @@ class PostsList extends Component {
               </h1>
 
               <div className="popover--footer">
-                  {this.state.addNewItem ? this.renderAddNewForm() : null}
+                  {this.state.addNewItem ? <Telescope.components.ParseEditor category={{}}/> : null}
               </div>
 
 
