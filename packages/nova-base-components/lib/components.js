@@ -79,3 +79,8 @@ Telescope.registerComponent("UsersAccountForm",     require('./users/UsersAccoun
 
 
 Telescope.registerComponent("HeaderContent",        require('./common/HeaderContent.jsx'));
+
+Telescope.registerComponent("UsersPopoverMenu",     require('./users/UsersPopoverMenu.jsx'));
+
+Telescope.registerComponent("UserLoginMain",                require('./users/UserLoginMain.jsx'));
+Telescope.registerComponent("UserLoginPopup",               require('./users/UserLoginPopup.jsx'));
