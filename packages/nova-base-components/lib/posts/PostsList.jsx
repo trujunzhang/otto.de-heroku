@@ -10,6 +10,10 @@ class PostsList extends Component {
         super(props);
         this.state = this.initialState = {
             items: [],
+            // Edit
+            value: '',
+            addNewItem: true,
+            // Message
             message: null,
         };
 
@@ -36,13 +40,24 @@ class PostsList extends Component {
         }
     }
 
+    onChange(e) {
+        const input = e.target.value;
+        this.setState({value: input});
+    }
+
     componentWillMount() {
         this.refresh();
 
         this._createItem("");
     }
 
-    _createItem(text) {
+    _createItem() {
+        const text = this.state.value;
+        if (text == "") {
+            this.showMessage("Invalidate input", 'error');
+            return;
+        }
+
         var Categories = Parse.Object.extend("Categories");
         var category = new Categories();
 
@@ -135,12 +150,27 @@ class PostsList extends Component {
         )
     }
 
+    renderAddNewForm() {
+        return (
+          <form id="newCollectionForm" className="collections-popover--form">
+              <input autoFocus type="text" className="collections-popover--form--field input collections-input"
+                     value={this.state.value} onChange={this.onChange} placeholder="Collection name (public)"
+                     ref="newCollectionInput"/>
+              <button onClick={this._createItem.bind(this)}
+                      className="button_2I1re mediumSize_10tzU secondaryBoldText_1PBCf secondaryText_PM80d simpleVariant_1Nl54 collections-popover--form--submit"
+                      type="submit">
+                  <div className="buttonContainer_wTYxi">Add</div>
+              </button>
+          </form>
+        )
+    }
+
     render() {
         const items = this.state.items;
 
         return (
           <div className="wrap" id="admin-posts-ui">
-              {!!this.state.message ? <div className="errorMessage_2lxEG">{this.state.message.message}</div> : null}
+              {!!this.state.message ? <div className={this.state.message.type == "success" ? "successfullyMessage_2lxEG" : "errorMessage_2lxEG"}>{this.state.message.message}</div> : null}
 
               <h1 className="admin-posts-title">Categories
                   <div className="modal-trigger"><a className="page-title-action">Add New</a></div>
@@ -148,6 +178,10 @@ class PostsList extends Component {
                       <div className="modal-trigger" onClick={this.refresh.bind(this)}><a className="page-title-action">Refresh</a></div>
                   </div>
               </h1>
+
+              <div className="popover--footer">
+                  {this.state.addNewItem ? this.renderAddNewForm() : null}
+              </div>
 
 
               <table className="wp-list-table widefat fixed striped posts">
