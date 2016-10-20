@@ -132,7 +132,7 @@ Telescope.strings.en = {
 
   "app.loading": "Loading…",
   "app.404": "Sorry, we couldn't find what you were looking for.",
-  "app.powered_by": "Powered by Telescope",
+  "app.powered_by": "Powered by Scrubye",
   "app.or": "Or",
   "app.noPermission": "Sorry, you do not have the permission to do this at this time.",
 

@@ -64,6 +64,18 @@ class ParseEditor extends Component {
 
     render() {
         return (
+          <div className="constraintWidth_ZyYbM layout_1EuVY">
+              <span className="headline_16ZHx headline_azIav default_tBeAo base_3CbW2">
+                  Submit an Category
+              </span>
+
+              {this.renderEditor()}
+          </div>
+        )
+    }
+
+    renderEditor() {
+        return (
           <div id="newCollectionForm" className="paddedBox_2UY-S box_c4OJj content_9N-p1">
               <label className="field_1LaJb">
                   <span className="label_2ZD44 text_3Wjo0 subtle_1BWOT base_3CbW2">url:</span>
