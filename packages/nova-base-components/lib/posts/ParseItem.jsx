@@ -11,6 +11,17 @@ import {withRouter} from 'react-router'
 
 class ParseItem extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = this.initialState = {
+            addNewItem: true,
+        };
+    }
+
+    _createItem() {
+
+    }
+
     render() {
         const item = this.props.item;
         const updatedAt = moment(item.updatedAt).format("YYYY/MM/DD");
@@ -32,6 +43,7 @@ class ParseItem extends Component {
               <td className="date column-date">Last Modified<br/>
                   <abbr title={updatedAt}>{updatedAt}</abbr>
               </td>
+              {this.state.addNewItem ? <Telescope.components.ParseEditor category={item} callBack={this._createItem.bind(this)}/> : null}
           </tr>
         )
     }

@@ -49,8 +49,8 @@ class ParseEditor extends Component {
         }
     }
 
-    renderPageNumber(){
-        return(
+    renderPageNumber() {
+        return (
           <label className="field_1LaJb">
               <span className="label_2ZD44 text_3Wjo0 subtle_1BWOT base_3CbW2">Total page Number Per Schedular:</span>
               <div className="group_1nlHj text_3Wjo0 default_tBeAo base_3CbW2" id="submit-new-topic-title-panel">
@@ -68,7 +68,7 @@ class ParseEditor extends Component {
               <label className="field_1LaJb">
                   <span className="label_2ZD44 text_3Wjo0 subtle_1BWOT base_3CbW2">url:</span>
                   <div className="group_1nlHj text_3Wjo0 default_tBeAo base_3CbW2" id="submit-new-topic-title-panel">
-                      <input autoFocus type="text" className="collections-popover--form--field input collections-input"
+                      <input autoFocus type="url" className="collections-popover--form--field input collections-input"
                              value={this.state.url} onChange={this.onUrlChange.bind(this)} placeholder="Collection name (public)"
                              ref="newCollectionInput"/>
                   </div>
