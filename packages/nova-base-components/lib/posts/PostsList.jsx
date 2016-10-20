@@ -1,17 +1,6 @@
 import Telescope from 'meteor/nova:lib';
 import React, {PropTypes, Component} from 'react';
-import {FlashContainer} from "meteor/nova:core";
-import {DocumentContainer} from "meteor/utilities:react-list-container";
-import {ModalTrigger} from "meteor/nova:core";
-import {FormattedMessage, intlShape} from 'react-intl';
-import Posts from "meteor/nova:posts";
-import Users from "meteor/nova:users";
-import Comments from "meteor/nova:comments";
-import moment from 'moment';
 import {withRouter} from 'react-router'
-
-//var Parse = require('parse');
-//var ParseReact = require('parse-react');
 
 class PostsList extends Component {
 
@@ -20,6 +9,17 @@ class PostsList extends Component {
         this.state = this.initialState = {
             posts: [],
         };
+
+    }
+
+    componentWillMount() {
+        this.refresh();
+    }
+
+    refresh() {
+        this.context.actions.call('parse.get.list', (result) => {
+            const x = 0
+        });
     }
 
     renderTableHeader() {
@@ -105,11 +105,9 @@ class PostsList extends Component {
 }
 
 PostsList.contextTypes = {
-    messages: React.PropTypes.object,
     currentUser: React.PropTypes.object,
     actions: React.PropTypes.object,
     events: React.PropTypes.object,
-    intl: intlShape
 };
 
 PostsList.displayName = "PostsList";
