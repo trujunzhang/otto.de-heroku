@@ -22,14 +22,6 @@ class PostsList extends Component {
 
         this.onDateSelectorChange = this.onDateSelectorChange.bind(this);
         this.onCatSelectorChange = this.onCatSelectorChange.bind(this);
-        this.onSearchChange = this.onSearchChange.bind(this);
-        this.onFilterClick = this.onFilterClick.bind(this);
-    }
-
-    onSearchChange(event) {
-        var value = event.target.value;
-        this.setState({query: value});
-        console.log("onSearchChange: " + value);
     }
 
     renderTableHeader() {
@@ -97,110 +89,6 @@ class PostsList extends Component {
     onCatSelectorChange(value) {
         this.setState({catSelector: value});
         console.log("onCatSelectorChange(callBack): " + value);
-    }
-
-    onFilterClick(event) {
-        const router = this.props.router;
-        const query = {};
-        if (this.state.catSelector != "All Categories") {
-            query["cat"] = this.state.catSelector;
-        }
-        if (this.state.dateSelector != "All dates") {
-            query["date"] = this.state.dateSelector;
-        }
-        if (this.state.query != "") {
-            query["query"] = this.state.query;
-        }
-
-        router.push({pathname: router.location.pathname, query: query});
-    }
-
-    renderTopbar() {
-        const tablePostCount = this.props.tablePostCount ? this.props.tablePostCount : 0;
-        const totalPages = 123;
-
-        return (
-          <div className="tablenav top">
-
-              <div className="alignleft actions bulkactions">
-                  <label className="screen-reader-text">Select bulk action</label>
-                  <select name="action" id="bulk-action-selector-top">
-                      <option value="-1">Bulk Actions</option>
-                      <option value="edit" className="hide-if-no-js">Edit</option>
-                      <option value="trash">Move to Trash</option>
-                  </select>
-                  <input type="submit" id="doaction" className="button action" value="Apply"/>
-              </div>
-              <h2 className="screen-reader-text">Posts list navigation</h2>
-              <div className="tablenav-pages">
-                  <span className="displaying-num">{tablePostCount + ' items'}</span>
-                  <span className="pagination-links">
-                        <span className="tablenav-pages-navspan">«</span>
-                        <span className="tablenav-pages-navspan">‹</span>
-                        <span className="paging-input">
-                            <label className="screen-reader-text">Current Page</label>
-                            <input className="current-page" id="current-page-selector" type="text" name="paged" value="1" size="3"/>
-                            <span className="tablenav-paging-text">
-                                of
-                                <span className="total-pages">{totalPages}</span>
-                            </span>
-                        </span>
-                        <a className="next-page">
-                            <span className="screen-reader-text">Next page</span>
-                            <span >›</span>
-                        </a>
-                        <a className="last-page">
-                            <span className="screen-reader-text">Last page</span>
-                            <span >»</span>
-                        </a>
-                    </span>
-              </div>
-              <br className="clear"/>
-          </div>
-        )
-    }
-
-    renderButtonbar() {
-        const tablePostCount = this.props.tablePostCount ? this.props.tablePostCount : 0;
-        const totalPages = 123;
-
-        return (
-          <div className="tablenav bottom">
-
-              <div className="alignleft actions bulkactions">
-                  <label className="screen-reader-text">Select bulk action</label>
-                  <select name="action2" id="bulk-action-selector-bottom">
-                      <option value="-1">Bulk Actions</option>
-                      <option value="edit" className="hide-if-no-js">Edit</option>
-                      <option value="trash">Move to Trash</option>
-                  </select>
-                  <input type="submit" id="doaction2" className="button action" value="Apply"/>
-              </div>
-              <div className="alignleft actions"></div>
-              <div className="tablenav-pages">
-                  <span className="displaying-num">{tablePostCount + ' items'}</span>
-                  <span className="pagination-links">
-                        <span className="tablenav-pages-navspan">«</span>
-                        <span className="tablenav-pages-navspan">‹</span>
-                        <span className="screen-reader-text">Current Page</span>
-                        <span id="table-paging" className="paging-input">
-                            <span className="tablenav-paging-text">1 of
-                                <span className="total-pages">{totalPages}</span>
-                            </span>
-                        </span>
-                        <a className="next-page">
-                            <span className="screen-reader-text">Next page</span>
-                            <span >›</span>
-                        </a>
-                        <a className="last-page">
-                            <span className="screen-reader-text">Last page</span>
-                            <span >»</span>
-                        </a>
-                    </span>
-              </div>
-              <br className="clear"/>
-          </div>
-        )
     }
 
     render() {
