@@ -208,13 +208,10 @@ class PostsList extends Component {
 
         return (
           <div className="wrap" id="admin-posts-ui">
-              <h1 className="admin-posts-title">Posts
-                  <ModalTrigger title={this.context.intl.formatMessage({id: "posts.new_post"})} component={<a className="page-title-action">Add New</a>}>
-                      <Telescope.components.PostsNewForm/>
-                  </ModalTrigger>
+              <h1 className="admin-posts-title">Categories
+                  <a className="page-title-action">Add New</a>
               </h1>
 
-              {this.renderTopbar()}
               <table className="wp-list-table widefat fixed striped posts">
 
                   {this.renderTableHeader()}
@@ -226,7 +223,6 @@ class PostsList extends Component {
                   {this.renderTableFooter()}
               </table>
 
-              {this.renderButtonbar()}
           </div>
         )
 
