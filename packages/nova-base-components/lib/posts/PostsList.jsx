@@ -2,33 +2,81 @@ import Telescope from 'meteor/nova:lib';
 import React, {PropTypes, Component} from 'react';
 import {withRouter} from 'react-router'
 
+var Parse = require('parse').Parse;
+
 class PostsList extends Component {
 
     constructor(props) {
         super(props);
         this.state = this.initialState = {
             items: [],
+            message: null,
         };
 
+        this.init_parse();
+    }
+
+    init_parse() {
+        const Application_ID = Telescope.settings.get("Parse_Application_ID");
+        const Javascript_KEY = Telescope.settings.get("Parse_Javascript_KEY");
+        // Insert your app's keys here:
+        Parse.initialize(Application_ID, Javascript_KEY);
+    }
+
+    showMessage(message, type, clearTimeout) {
+        message = message.trim();
+
+        if (message) {
+            this.setState({message: {message: message, type: type}});
+            if (clearTimeout) {
+                Meteor.setTimeout(() => {
+                    this.setState({message: null});
+                }, clearTimeout);
+            }
+        }
     }
 
     componentWillMount() {
         this.refresh();
+
+        this._createItem("");
+    }
+
+    _createItem(text) {
+        var Categories = Parse.Object.extend("Categories");
+        var category = new Categories();
+
+        category.set("score", 123);
+        category.set("playerName", "Trujun Zhang");
+        category.set("cheatMode", true);
+
+        category.save(null, {
+            success: function (gameScore) {
+                // Execute any logic that should take place after the object is saved.
+                //alert('New object created with objectId: ' + gameScore.id);
+                this.showMessage("Save data successfully", 'success');
+                this.refresh();
+            },
+            error: function (gameScore, error) {
+                // Execute any logic that should take place if the save fails.
+                // error is a Parse.Error with an error code and message.
+                this.showMessage("Save data failure", 'error');
+            }
+        });
     }
 
     refresh() {
-        const object = {
-            "score": 12345,
-            "playerName": "Trujun Zhang",
-            "cheatMode": true
-        };
-
-        this.context.actions.call('parse.add.object', object, (error, result) => {
-            this.setState({items: result})
+        var Categories = Parse.Object.extend("Categories");
+        var query = new Parse.Query(Categories);
+        //query.equalTo("playerName", "Dan Stemkoski");
+        query.find({
+            success: function (results) {
+                this.setState({items: results});
+            },
+            error: function (error) {
+                this.showMessage("Fetching data failure", 'error');
+            }
         });
-        //this.context.actions.call('parse.get.list', (error, result) => {
-        //    this.setState({items: result})
-        //});
     }
 
     renderTableHeader() {
@@ -92,9 +140,15 @@ class PostsList extends Component {
 
         return (
           <div className="wrap" id="admin-posts-ui">
+              {!!this.state.message ? <div className="errorMessage_2lxEG">{this.state.message.message}</div> : null}
+
               <h1 className="admin-posts-title">Categories
                   <div className="modal-trigger"><a className="page-title-action">Add New</a></div>
+                  <div id="refresh-button">
+                      <div className="modal-trigger" onClick={this.refresh.bind(this)}><a className="page-title-action">Refresh</a></div>
+                  </div>
               </h1>
+
 
               <table className="wp-list-table widefat fixed striped posts">
 

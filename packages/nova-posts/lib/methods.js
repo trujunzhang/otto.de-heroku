@@ -303,23 +303,23 @@ Meteor.methods({
         return [];
     },
 
-    'parse.add.object': function (object) {
-        const serial = JSON.stringify(object);
-
-        var result = Meteor.http.post("https://api.parse.com/1/classes/GameScore",
-          {
-              headers: {
-                  "X-Parse-Application-Id": "bAWPW8Ap8Sbk6prAu8hflEoDZ5uCvjTvY5nLpB7X",
-                  "X-Parse-REST-API-Key": "bpQUmA8wUUpARVHJf3Lugslyb0GRf9OlDkU6uU4m",
-              },
-              data: serial,
-          });
-
-        if (result.statusCode == "200") {
-            return result.data;
-        }
-
-        return null;
-    }
+    //'parse.add.object': function (object) {
+    //    const serial = JSON.stringify(object);
+    //
+    //    var result = Meteor.http.post("https://api.parse.com/1/classes/GameScore",
+    //      {
+    //          headers: {
+    //              "X-Parse-Application-Id": "bAWPW8Ap8Sbk6prAu8hflEoDZ5uCvjTvY5nLpB7X",
+    //              "X-Parse-REST-API-Key": "bpQUmA8wUUpARVHJf3Lugslyb0GRf9OlDkU6uU4m",
+    //          },
+    //          "-d": serial,
+    //      });
+    //
+    //    if (result.statusCode == "200") {
+    //        return result.data;
+    //    }
+    //
+    //    return null;
+    //}
 
 });
