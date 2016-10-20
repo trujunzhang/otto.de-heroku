@@ -16,21 +16,21 @@ class ParseItem extends Component {
         const updatedAt = moment(item.postedAt).format("YYYY/MM/DD");
 
         return (
-          <tr key={item._id}
-              className="iedit author-other level-0 post-64943 type-post status-draft format-standard has-post-thumbnail hentry category-all-reads tag-article-208 tag-cauvery-basin tag-cauvery-dispute tag-cauvery-water-disputes-tribunal tag-dipak-misra tag-houses-of-legislature tag-inter-state-river-water-disputes-act tag-karnataka tag-rules-of-procedure tag-supreme-court tag-tamil-nadu tag-uday-umesh-lalit">
+          <tr
+            className="iedit author-other level-0 post-64943 type-post status-draft format-standard has-post-thumbnail hentry category-all-reads tag-article-208 tag-cauvery-basin tag-cauvery-dispute tag-cauvery-water-disputes-tribunal tag-dipak-misra tag-houses-of-legislature tag-inter-state-river-water-disputes-act tag-karnataka tag-rules-of-procedure tag-supreme-court tag-tamil-nadu tag-uday-umesh-lalit">
               <th scope="row" className="check-column">
                   <label className="screen-reader-text">{"Select " + item.title}</label>
                   <input id="cb-select" type="checkbox" name="post[]"/>
                   <div className="locked-indicator"></div>
               </th>
               <td className="title column-title has-row-actions column-primary page-title">
-                  <h1>wh</h1>
+                  <h1>{item.url}</h1>
               </td>
               <td className="tags column-tags">
-                  <h1>wh</h1>
+                  <h1>{item.pageNumber}</h1>
               </td>
               <td className="comments column-comments">
-                  <h1>wh</h1>
+                  <h1>{item.totalNumber}</h1>
               </td>
               <td className="date column-date">Last Modified<br/>
                   <abbr title={updatedAt}>{updatedAt}</abbr>
