@@ -296,6 +296,9 @@ Meteor.methods({
                 "X-Parse-REST-API-Key": "bpQUmA8wUUpARVHJf3Lugslyb0GRf9OlDkU6uU4m",
             }
         });
+        if (result.statusCode == "200") {
+            return JSON.parse(result.content).results;
+        }
 
         return [];
     }

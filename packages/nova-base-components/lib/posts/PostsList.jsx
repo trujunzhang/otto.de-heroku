@@ -7,7 +7,7 @@ class PostsList extends Component {
     constructor(props) {
         super(props);
         this.state = this.initialState = {
-            posts: [],
+            items: [],
         };
 
     }
@@ -18,7 +18,7 @@ class PostsList extends Component {
 
     refresh() {
         this.context.actions.call('parse.get.list', (result) => {
-            const x = 0
+            this.setState({items: result})
         });
     }
 
@@ -79,7 +79,7 @@ class PostsList extends Component {
     }
 
     render() {
-        const posts = this.state.posts;
+        const items = this.state.items;
 
         return (
           <div className="wrap" id="admin-posts-ui">
@@ -92,7 +92,7 @@ class PostsList extends Component {
                   {this.renderTableHeader()}
 
                   <tbody id="the-list">
-                  {(!!posts && posts.length > 0 ) ? posts.map((post, index) =><Telescope.components.AppAdminPostItem key={index} post={post} currentUser={this.props.currentUser}/>) : null}
+                  {(!!items && items.length > 0 ) ? items.map((item, index) =><Telescope.components.ParseItem key={index} item={item}/>) : null}
                   </tbody>
 
                   {this.renderTableFooter()}
