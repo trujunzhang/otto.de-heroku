@@ -61,9 +61,7 @@ class PostsList extends Component {
         var Categories = Parse.Object.extend("Categories");
         var category = new Categories();
 
-        category.set("score", 123);
-        category.set("playerName", "Trujun Zhang");
-        category.set("cheatMode", true);
+        category.set("url", text);
 
         category.save(null, {
             success: function (gameScore) {
