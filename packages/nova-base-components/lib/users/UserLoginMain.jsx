@@ -54,7 +54,7 @@ class UserLoginMain extends Component {
           <div className="modal--content">
               <div className="login-fullscreen">
                   <h2 className="login-fullscreen--title">Login to</h2>
-                  <p className="login-fullscreen--intro">Politicl is a community to share and publish about the last popular news. Join us :)</p>
+                  <p className="login-fullscreen--intro">Otto.de is an web app to manage what categories need to scrape. Join us :)</p>
                   <span>
                             <div className="buttonGroup_1mB5C">
                                 <a
@@ -68,13 +68,6 @@ class UserLoginMain extends Component {
                                     <div className="buttonContainer_wTYxi">Log in with facebook</div>
                                 </a>
                             </div>
-                          <div className="row login-via-email">
-                              <button
-                                onClick={(e)=>this.props.switchFormState(e, "SIGNIN")}
-                                className="button button--primary button--large button--chromeless button--link u-accentColor--buttonNormal u-marginTop15">
-                                  Sign in or sign up with email
-                              </button>
-                          </div>
                             <p className="login-fullscreen--login-info">We'll never post to Twitter or Facebook without your permission.</p>
                         </span>
               </div>
