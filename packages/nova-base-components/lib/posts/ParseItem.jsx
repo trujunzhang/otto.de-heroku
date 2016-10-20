@@ -13,7 +13,7 @@ class ParseItem extends Component {
 
     render() {
         const item = this.props.item;
-        const updatedAt = moment(item.postedAt).format("YYYY/MM/DD");
+        const updatedAt = moment(item.updatedAt).format("YYYY/MM/DD");
 
         return (
           <tr
