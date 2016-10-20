@@ -17,7 +17,7 @@ class ParseEditor extends Component {
             // Edit
             url: this.props.category['url'] ? this.props.category['url'] : "",
             //pageNumber: this.props.category['pageNumber'] ? this.props.category['pageNumber'] : 0,
-            totalNumber: this.props.category['totalNumber'] ? this.props.category['totalNumber'] : 0,
+            totalNumber: this.props.category['totalNumber'] ? this.props.category['totalNumber'] : 10,
         };
     }
 
@@ -36,8 +36,12 @@ class ParseEditor extends Component {
         this.setState({totalNumber: input});
     }
 
+    isNumber(o) {
+        return typeof o == "number" || (typeof o == "object" && o.constructor === Number);
+    }
+
     onSubmitClick() {
-        if (this.state.url == "" || this.state.totalNumber == "") {
+        if (this.state.url == "" || !this.isNumber(this.state.totalNumber)) {
             this.props.callBack("Invalidate input", null);
         } else {
             const result = {
