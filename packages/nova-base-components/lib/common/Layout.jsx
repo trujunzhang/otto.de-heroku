@@ -49,9 +49,9 @@ class Layout extends Component {
               {this.state.isLogin ? <Telescope.components.UserLoginPopup /> : null}
 
               <div className="main">
-
-                  {this.props.children}
-
+                  <div id="admin-dashboard" className="hold-transition skin-blue sidebar-mini">
+                      {this.props.children}
+                  </div>
               </div>
 
               <div>

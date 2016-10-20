@@ -51,31 +51,39 @@ class ParseEditor extends Component {
 
     render() {
         return (
-          <div id="newCollectionForm" className="collections-popover--form">
-              <div className="row">
+          <div id="newCollectionForm" className="paddedBox_2UY-S box_c4OJj content_9N-p1">
+              <label className="field_1LaJb">
                   <span className="label_2ZD44 text_3Wjo0 subtle_1BWOT base_3CbW2">url:</span>
-                  <input autoFocus type="text" className="collections-popover--form--field input collections-input"
-                         value={this.state.url} onChange={this.onUrlChange.bind(this)} placeholder="Collection name (public)"
-                         ref="newCollectionInput"/>
-              </div>
-              <div className="row">
+                  <div className="group_1nlHj text_3Wjo0 default_tBeAo base_3CbW2" id="submit-new-topic-title-panel">
+                      <input autoFocus type="text" className="collections-popover--form--field input collections-input"
+                             value={this.state.url} onChange={this.onUrlChange.bind(this)} placeholder="Collection name (public)"
+                             ref="newCollectionInput"/>
+                  </div>
+              </label>
+              <label className="field_1LaJb">
                   <span className="label_2ZD44 text_3Wjo0 subtle_1BWOT base_3CbW2">Total page Number Per Schedular:</span>
-                  <input autoFocus type="text" className="collections-popover--form--field input collections-input"
-                         value={this.state.pageNumber} onChange={this.onPageNumberChange.bind(this)} placeholder="Collection name (public)"
-                         ref="newCollectionInput"/>
-              </div>
-              <div className="row">
+                  <div className="group_1nlHj text_3Wjo0 default_tBeAo base_3CbW2" id="submit-new-topic-title-panel">
+                      <input autoFocus type="text" className="collections-popover--form--field input collections-input"
+                             value={this.state.pageNumber} onChange={this.onPageNumberChange.bind(this)} placeholder="Collection name (public)"
+                             ref="newCollectionInput"/>
+                  </div>
+              </label>
+              <label className="field_1LaJb">
                   <span className="label_2ZD44 text_3Wjo0 subtle_1BWOT base_3CbW2">Total products Per Schedular:</span>
-                  <input autoFocus type="text" className="collections-popover--form--field input collections-input"
-                         value={this.state.totalNumber} onChange={this.onTotalNumberChange.bind(this)} placeholder="Collection name (public)"
-                         ref="newCollectionInput"/>
-              </div>
+                  <div className="group_1nlHj text_3Wjo0 default_tBeAo base_3CbW2" id="submit-new-topic-title-panel">
+                      <input autoFocus type="text" className="collections-popover--form--field input collections-input"
+                             value={this.state.totalNumber} onChange={this.onTotalNumberChange.bind(this)} placeholder="Collection name (public)"
+                             ref="newCollectionInput"/>
+                  </div>
+              </label>
               <div className="right_1jQ6K buttonGroup_2NmU8 right_2JztM">
-                  <button onClick={this.onSubmitClick.bind(this)}
-                          className="button_2I1re mediumSize_10tzU secondaryBoldText_1PBCf secondaryText_PM80d simpleVariant_1Nl54 collections-popover--form--submit"
-                          type="submit">
-                      <div className="buttonContainer_wTYxi">Submit</div>
-                  </button>
+                  <div className="buttonWithNotice_3bRZb">
+                      <button onClick={this.onSubmitClick.bind(this)}
+                              className="button_2I1re mediumSize_10tzU secondaryBoldText_1PBCf secondaryText_PM80d orangeSolidColor_B-2gO solidVariant_2wWrf"
+                              type="submit">
+                          <div className="buttonContainer_wTYxi">Submit</div>
+                      </button>
+                  </div>
               </div>
           </div>
         )
