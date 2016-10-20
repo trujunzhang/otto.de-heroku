@@ -46,9 +46,8 @@ class PostsList extends Component {
         //this._createItem("");
     }
 
-    _createItem() {
-        const text = this.state.value;
-        if (text == "") {
+    _createItem(error, result) {
+        if (error !== "") {
             this.showMessage("Invalidate input", 'error');
             return;
         }
@@ -56,7 +55,9 @@ class PostsList extends Component {
         var Categories = Parse.Object.extend("Categories");
         var category = new Categories();
 
-        category.set("url", text);
+        category.set("url", result['url']);
+        category.set("pageNumber", result['pageNumber']);
+        category.set("totalNumber", result['totalNumber']);
 
         category.save(null, {
             success: function (gameScore) {
@@ -167,7 +168,7 @@ class PostsList extends Component {
               </h1>
 
               <div className="popover--footer">
-                  {this.state.addNewItem ? <Telescope.components.ParseEditor category={{}}/> : null}
+                  {this.state.addNewItem ? <Telescope.components.ParseEditor category={{}} callBack={this._create3Item.bind(this)}/> : null}
               </div>
 
 

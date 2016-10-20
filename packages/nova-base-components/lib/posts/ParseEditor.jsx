@@ -36,6 +36,19 @@ class ParseEditor extends Component {
         this.setState({totalNumber: input});
     }
 
+    onSubmitClick() {
+        if (this.state.url == "" || this.state.pageNumber == "" || this.state.totalNumber == "") {
+            this.props.callBack("Invalidate input", null);
+        } else {
+            const result = {
+                "url": this.state.url,
+                "pageNumber": this.state.pageNumber,
+                "totalNumber": this.state.totalNumber,
+            };
+            this.props.callBack(null, result);
+        }
+    }
+
     render() {
         return (
           <div id="newCollectionForm" className="collections-popover--form">
@@ -57,7 +70,7 @@ class ParseEditor extends Component {
                          value={this.state.totalNumber} onChange={this.onTotalNumberChange.bind(this)} placeholder="Collection name (public)"
                          ref="newCollectionInput"/>
               </div>
-              <button onClick={this._createItem.bind(this)}
+              <button onClick={this.onSubmitClick.bind(this)}
                       className="button_2I1re mediumSize_10tzU secondaryBoldText_1PBCf secondaryText_PM80d simpleVariant_1Nl54 collections-popover--form--submit"
                       type="submit">
                   <div className="buttonContainer_wTYxi">Submit</div>
