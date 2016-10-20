@@ -150,16 +150,16 @@ class PostsList extends Component {
 
     renderAddNewForm() {
         return (
-          <form id="newCollectionForm" className="collections-popover--form">
+          <div id="newCollectionForm" className="collections-popover--form">
               <input autoFocus type="text" className="collections-popover--form--field input collections-input"
                      value={this.state.value} onChange={this.onChange} placeholder="Collection name (public)"
                      ref="newCollectionInput"/>
               <button onClick={this._createItem.bind(this)}
                       className="button_2I1re mediumSize_10tzU secondaryBoldText_1PBCf secondaryText_PM80d simpleVariant_1Nl54 collections-popover--form--submit"
                       type="submit">
-                  <div className="buttonContainer_wTYxi">Add</div>
+                  <div className="buttonContainer_wTYxi">Submit</div>
               </button>
-          </form>
+          </div>
         )
     }
 
