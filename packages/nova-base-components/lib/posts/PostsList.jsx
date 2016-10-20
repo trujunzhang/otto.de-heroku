@@ -17,9 +17,18 @@ class PostsList extends Component {
     }
 
     refresh() {
-        this.context.actions.call('parse.get.list', (result) => {
+        const object = {
+            "score": 12345,
+            "playerName": "Trujun Zhang",
+            "cheatMode": true
+        };
+
+        this.context.actions.call('parse.add.object', object, (error, result) => {
             this.setState({items: result})
         });
+        //this.context.actions.call('parse.get.list', (error, result) => {
+        //    this.setState({items: result})
+        //});
     }
 
     renderTableHeader() {
