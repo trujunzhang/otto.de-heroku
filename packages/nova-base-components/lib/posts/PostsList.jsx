@@ -15,13 +15,8 @@ class PostsList extends Component {
     constructor(props) {
         super(props);
         this.state = this.initialState = {
-            dateSelector: 'All dates',
-            catSelector: 'All Categories',
-            query: '',
+            posts: [],
         };
-
-        this.onDateSelectorChange = this.onDateSelectorChange.bind(this);
-        this.onCatSelectorChange = this.onCatSelectorChange.bind(this);
     }
 
     renderTableHeader() {
@@ -80,19 +75,8 @@ class PostsList extends Component {
         )
     }
 
-    onDateSelectorChange(event) {
-        var value = event.target.value;
-        this.setState({dateSelector: value});
-        console.log("onDateSelectorChange: " + value);
-    }
-
-    onCatSelectorChange(value) {
-        this.setState({catSelector: value});
-        console.log("onCatSelectorChange(callBack): " + value);
-    }
-
     render() {
-        const posts = this.props.results;
+        const posts = this.state.posts;
 
         return (
           <div className="wrap" id="admin-posts-ui">
