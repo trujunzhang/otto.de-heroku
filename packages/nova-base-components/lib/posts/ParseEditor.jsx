@@ -52,29 +52,31 @@ class ParseEditor extends Component {
     render() {
         return (
           <div id="newCollectionForm" className="collections-popover--form">
-              <div>
-                  <h3>url:</h3>
+              <div className="row">
+                  <span className="label_2ZD44 text_3Wjo0 subtle_1BWOT base_3CbW2">url:</span>
                   <input autoFocus type="text" className="collections-popover--form--field input collections-input"
                          value={this.state.url} onChange={this.onUrlChange.bind(this)} placeholder="Collection name (public)"
                          ref="newCollectionInput"/>
               </div>
-              <div>
-                  <h3>Total page Number Per Schedular:</h3>
+              <div className="row">
+                  <span className="label_2ZD44 text_3Wjo0 subtle_1BWOT base_3CbW2">Total page Number Per Schedular:</span>
                   <input autoFocus type="text" className="collections-popover--form--field input collections-input"
                          value={this.state.pageNumber} onChange={this.onPageNumberChange.bind(this)} placeholder="Collection name (public)"
                          ref="newCollectionInput"/>
               </div>
-              <div>
-                  <h3>Total products Per Schedular</h3>
+              <div className="row">
+                  <span className="label_2ZD44 text_3Wjo0 subtle_1BWOT base_3CbW2">Total products Per Schedular:</span>
                   <input autoFocus type="text" className="collections-popover--form--field input collections-input"
                          value={this.state.totalNumber} onChange={this.onTotalNumberChange.bind(this)} placeholder="Collection name (public)"
                          ref="newCollectionInput"/>
               </div>
-              <button onClick={this.onSubmitClick.bind(this)}
-                      className="button_2I1re mediumSize_10tzU secondaryBoldText_1PBCf secondaryText_PM80d simpleVariant_1Nl54 collections-popover--form--submit"
-                      type="submit">
-                  <div className="buttonContainer_wTYxi">Submit</div>
-              </button>
+              <div className="right_1jQ6K buttonGroup_2NmU8 right_2JztM">
+                  <button onClick={this.onSubmitClick.bind(this)}
+                          className="button_2I1re mediumSize_10tzU secondaryBoldText_1PBCf secondaryText_PM80d simpleVariant_1Nl54 collections-popover--form--submit"
+                          type="submit">
+                      <div className="buttonContainer_wTYxi">Submit</div>
+                  </button>
+              </div>
           </div>
         )
     }

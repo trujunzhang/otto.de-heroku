@@ -2,7 +2,7 @@ import Telescope from 'meteor/nova:lib';
 import React, {PropTypes, Component} from 'react';
 import {withRouter} from 'react-router'
 
-var Parse = require('parse').Parse;
+var Parse = require('parse/node').Parse;
 
 class PostsList extends Component {
 
@@ -168,7 +168,7 @@ class PostsList extends Component {
               </h1>
 
               <div className="popover--footer">
-                  {this.state.addNewItem ? <Telescope.components.ParseEditor category={{}} callBack={this._create3Item.bind(this)}/> : null}
+                  {this.state.addNewItem ? <Telescope.components.ParseEditor category={{}} callBack={this._createItem.bind(this)}/> : null}
               </div>
 
 
