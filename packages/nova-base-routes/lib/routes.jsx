@@ -47,7 +47,7 @@ Meteor.startup(() => {
   const serverOptions = {
     htmlHook: (html) => {
       const head = Helmet.rewind();
-      return html.replace('<head>', '<head>'+ head.title + head.meta + head.link);    
+      return html.replace('<head>', '<head>' + head.title + head.meta + head.link + head.script);
     },
     preRender: (req, res) => {
       Cookie.plugToRequest(req, res);

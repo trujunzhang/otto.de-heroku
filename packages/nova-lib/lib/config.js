@@ -77,7 +77,8 @@ Telescope.routes = {
 
 Telescope.headtags = {
   meta: [],
-  link: []
+  link: [],
+  script:[]
 }
 
 // ------------------------------------- Statuses -------------------------------- //

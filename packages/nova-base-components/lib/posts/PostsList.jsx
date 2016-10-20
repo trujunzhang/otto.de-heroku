@@ -10,8 +10,8 @@ import Comments from "meteor/nova:comments";
 import moment from 'moment';
 import {withRouter} from 'react-router'
 
-var Parse = require('parse');
-var ParseReact = require('parse-react');
+//var Parse = require('parse');
+//var ParseReact = require('parse-react');
 
 class PostsList extends Component {
 
