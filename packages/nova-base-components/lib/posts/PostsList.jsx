@@ -209,7 +209,7 @@ class PostsList extends Component {
         return (
           <div className="wrap" id="admin-posts-ui">
               <h1 className="admin-posts-title">Categories
-                  <a className="page-title-action">Add New</a>
+                  <div className="modal-trigger"><a className="page-title-action">Add New</a></div>
               </h1>
 
               <table className="wp-list-table widefat fixed striped posts">
