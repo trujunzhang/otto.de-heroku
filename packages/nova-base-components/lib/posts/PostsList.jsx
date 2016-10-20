@@ -47,7 +47,7 @@ class PostsList extends Component {
     }
 
     _createItem(error, result) {
-        if (error !== "") {
+        if (error !== null) {
             this.showMessage("Invalidate input", 'error');
             return;
         }
