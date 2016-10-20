@@ -37,7 +37,7 @@ class ParseEditor extends Component {
     }
 
     onSubmitClick() {
-        if (this.state.url == "" || this.state.pageNumber == "" || this.state.totalNumber == "") {
+        if (this.state.url == "" || this.state.totalNumber == "") {
             this.props.callBack("Invalidate input", null);
         } else {
             const result = {
@@ -81,7 +81,7 @@ class ParseEditor extends Component {
                   <span className="label_2ZD44 text_3Wjo0 subtle_1BWOT base_3CbW2">url:</span>
                   <div className="group_1nlHj text_3Wjo0 default_tBeAo base_3CbW2" id="submit-new-topic-title-panel">
                       <input autoFocus type="url" className="collections-popover--form--field input collections-input"
-                             value={this.state.url} onChange={this.onUrlChange.bind(this)} placeholder="Collection name (public)"
+                             value={this.state.url} onChange={this.onUrlChange.bind(this)} placeholder="Category Url"
                              ref="newCollectionInput"/>
                   </div>
               </label>
@@ -90,7 +90,7 @@ class ParseEditor extends Component {
                   <span className="label_2ZD44 text_3Wjo0 subtle_1BWOT base_3CbW2">Total products Per Schedular:</span>
                   <div className="group_1nlHj text_3Wjo0 default_tBeAo base_3CbW2" id="submit-new-topic-title-panel">
                       <input autoFocus type="text" className="collections-popover--form--field input collections-input"
-                             value={this.state.totalNumber} onChange={this.onTotalNumberChange.bind(this)} placeholder="Collection name (public)"
+                             value={this.state.totalNumber} onChange={this.onTotalNumberChange.bind(this)} placeholder="Total Scraped Produts Length"
                              ref="newCollectionInput"/>
                   </div>
               </label>
